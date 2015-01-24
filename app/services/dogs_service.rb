@@ -12,7 +12,15 @@ class DogsService
   def build_response(json)
     api_results = JSON.parse(json)
     {
-      'dogs' => api_results['data'].map { |k,v| v },
+      'dogs' => api_results['data'].map { |_,animal|
+        {
+          'id' => animal['animalID'],
+          'name' => animal['animalName'],
+          'orgId' => animal['animalOrgID'],
+          'breed' => animal['animalBreed'],
+          'location' => animal['animalLocation'],
+        }
+      },
     }
   end
 
