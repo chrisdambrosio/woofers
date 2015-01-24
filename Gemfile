@@ -41,4 +41,10 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.0'
+
+  gem 'webmock', '~> 1.20.4'
+  gem 'dotenv-rails'
 end
+
+# For RescueGroups API
+gem 'httparty', '~> 0.13.3'
