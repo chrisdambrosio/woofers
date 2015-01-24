@@ -42,8 +42,12 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0'
 
-  gem 'webmock', '~> 1.20.4'
   gem 'dotenv-rails'
+  gem 'pry'
+end
+
+group :test do
+  gem 'webmock', '~> 1.20.4'
 end
 
 # For RescueGroups API

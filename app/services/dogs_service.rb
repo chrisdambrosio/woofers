@@ -3,9 +3,17 @@ require 'httparty'
 class DogsService
   API_KEY = ENV.fetch('RESCUEGROUPS_API_KEY')
 
-  def fetch
-    HTTParty.post 'https://api.rescuegroups.org/http/json',
+  def search
+    response = HTTParty.post 'https://api.rescuegroups.org/http/json',
       headers: headers, body: data.to_json
+    build_response(response.body)
+  end
+
+  def build_response(json)
+    api_results = JSON.parse(json)
+    {
+      'dogs' => api_results['data'].map { |k,v| v },
+    }
   end
 
   def headers
