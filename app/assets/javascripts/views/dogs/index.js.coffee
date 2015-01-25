@@ -1,4 +1,9 @@
 class Woofers.Views.DogsIndexView extends Backbone.View
+  initialize: (options) ->
+    @collection.on('add', this.addOne)
+    @collection.on('reset', this.render)
+    @render()
+
   template: 'dogs/index'
 
   addOne: (dog) =>
@@ -8,6 +13,7 @@ class Woofers.Views.DogsIndexView extends Backbone.View
   addAll: ->
     @collection.forEach(@addOne)
 
-  render: ->
+  render: =>
+    @$el.empty()
     @addAll()
     this
