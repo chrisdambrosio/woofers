@@ -1,6 +1,7 @@
 describe 'Router', ->
   beforeEach ->
     @collection = new Backbone.Collection()
+    @fetchStub = sinon.stub(@collection, 'fetch').returns(null)
     @dogsIndexViewStub = sinon.stub(window.Woofers.Views, 'DogsIndexView')
       .returns(new Backbone.View())
     @dogsCollectionStub = sinon.stub(window.Woofers.Collections, 'DogsCollection')
@@ -37,3 +38,7 @@ describe 'Router', ->
       expect(@dogsIndexViewStub.calledOnce).toBeTruthy()
       expect(@dogsIndexViewStub.calledWith(collection: @collection))
         .toBeTruthy()
+
+    it 'fetches the dogs collection from the server', ->
+      expect(@fetchStub.calledOnce).toBeTruthy()
+      expect(@fetchStub.calledWith()).toBeTruthy()
