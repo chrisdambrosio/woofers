@@ -1,0 +1,1 @@
+class Woofers.Collections.DogsCollection extends Backbone.Collection

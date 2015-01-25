@@ -3,7 +3,8 @@ window.Woofers =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: ->
+    console.log('starting..')
 
 $(document).ready ->
   Woofers.initialize()
