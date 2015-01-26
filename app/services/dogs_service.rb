@@ -3,9 +3,12 @@ require 'httparty'
 class DogsService
   API_KEY = ENV.fetch('RESCUEGROUPS_API_KEY')
 
-  def search
+  def search(options = {})
+    offset = options.fetch(:offset) { 0 }
+    limit = options.fetch(:limit) { 20 }
+
     response = HTTParty.post 'https://api.rescuegroups.org/http/json',
-      headers: headers, body: data.to_json
+      headers: headers, body: data(offset: offset, limit: limit).to_json
     build_response(response.body)
   end
 
@@ -31,14 +34,14 @@ class DogsService
     }
   end
 
-  def data
+  def data(options = {})
     {
       apikey: API_KEY,
       objectType: "animals",
       objectAction: "publicSearch",
       search: {
-        resultStart: 0,
-        resultLimit: 20,
+        resultStart: options[:offset],
+        resultLimit: options[:limit],
         resultSort: "animalID",
         resultOrder: "asc",
         calcFoundRows: "Yes",
