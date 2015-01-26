@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
-  def search
-    @search = Dog.search
-    render :json => @search
+  def index
+    @dogs = Dog.search
+    render :json => @dogs
   end
 end
