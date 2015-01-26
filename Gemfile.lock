@@ -121,6 +121,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    purecss-rails (0.5.0.1)
+      railties (>= 3.2.6, < 5)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -223,6 +225,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pry
+  purecss-rails
   rails (= 4.2.0)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)

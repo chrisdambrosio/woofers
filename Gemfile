@@ -55,3 +55,5 @@ end
 gem 'httparty', '~> 0.13.3'
 
 gem 'backbone-on-rails', '~> 1.1.2.0'
+
+gem 'purecss-rails'
