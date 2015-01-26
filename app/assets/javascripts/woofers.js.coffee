@@ -4,7 +4,8 @@ window.Woofers =
   Views: {}
   Routers: {}
   initialize: ->
-    console.log('starting..')
+    @router = new Woofers.Routers.Router()
+    Backbone.history.start(pushState: true)
 
 $(document).ready ->
   Woofers.initialize()
