@@ -57,3 +57,6 @@ gem 'httparty', '~> 0.13.3'
 gem 'backbone-on-rails', '~> 1.1.2.0'
 
 gem 'purecss-rails'
+
+# For serving static assets in Heroku
+gem 'rails_12factor', group: :production
