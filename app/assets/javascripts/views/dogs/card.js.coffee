@@ -5,10 +5,11 @@ class Woofers.Views.DogsCardView extends Backbone.View
 
   render: ->
     html = @template(@model.attributes)
+    @$el.html(html)
 
     photos = @model.get('photos')
     largeImageUrl = photos[0]?.large.url
-    @$el.css('background', "url(#{largeImageUrl})")
+    @$el.find('.preview-photo')
+      .css('background', "url(#{largeImageUrl})")
 
-    @$el.html(html)
     this

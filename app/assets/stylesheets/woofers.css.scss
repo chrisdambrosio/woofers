@@ -11,13 +11,9 @@ body {
 
 .card-view {
   background: #FFF;
-  background-size: cover !important;
-  background-repeat: no-repeat;
-  background-position: center;
   width: 250px;
-  height: 250px;
   margin: 5px;
-  padding: 0;
+  padding: 5px;
   display: inline-block;
   box-shadow: 0px 2px 4px rgba(0,0,0,.2);
   border-radius: 2px;
@@ -29,4 +25,12 @@ body {
     text-align: center;
     padding: 7px;
   }
+
+  .preview-photo {
+    height: 250px;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
 }
