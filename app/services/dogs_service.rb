@@ -20,9 +20,10 @@ class DogsService
           'id' => animal['animalID'],
           'name' => animal['animalName'],
           'orgId' => animal['animalOrgID'],
-          'breed' => animal['animalBreed'],
-          'location' => animal['animalLocation'],
+          'breed' => animal['animalPrimaryBreed'],
           'photos' => animal['animalPictures'],
+          'description' => animal['animalDescriptionPlain'],
+          'ageString' => animal['animalAgeString'],
         }
       },
     }
@@ -67,7 +68,10 @@ class DogsService
             criteria: "30",
           },
         ],
-        fields: [ "animalID","animalOrgID","animalName","animalBreed","animalLocation","animalPictures" ]
+        fields: %W{
+          animalID animalOrgID animalName animalAgeString animalPrimaryBreed
+          animalPictures animalDescriptionPlain
+        }
       }
     }
   end
