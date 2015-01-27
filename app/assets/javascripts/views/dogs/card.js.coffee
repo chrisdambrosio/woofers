@@ -8,8 +8,8 @@ class Woofers.Views.DogsCardView extends Backbone.View
     @$el.html(html)
 
     photos = @model.get('photos')
-    largeImageUrl = photos[0]?.large.url
+    mediumPhotoUrl = photos[0]?.medium
     @$el.find('.preview-photo')
-      .css('background', "url(#{largeImageUrl})")
+      .css('background', "url(#{mediumPhotoUrl})")
 
     this

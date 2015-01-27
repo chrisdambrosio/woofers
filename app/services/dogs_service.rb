@@ -1,78 +1,55 @@
-require 'httparty'
-
 class DogsService
-  API_KEY = ENV.fetch('RESCUEGROUPS_API_KEY')
+  API_KEY = ENV.fetch('PETFINDER_API_KEY')
+  API_SECRET = ENV.fetch('PETFINDER_API_SECRET')
 
   def search(options = {})
     offset = options.fetch(:offset) { 0 }
     limit = options.fetch(:limit) { 20 }
 
-    response = HTTParty.post 'https://api.rescuegroups.org/http/json',
-      headers: headers, body: data(offset: offset, limit: limit).to_json
-    build_response(response.body)
+    results = petfinder.find_pets \
+      'dog', 'San Diego, CA', count: limit, offset: offset
+
+    build_response(results)
   end
 
-  def build_response(json)
-    api_results = JSON.parse(json)
+  private
+
+  def build_response(results)
     {
-      'dogs' => api_results['data'].map { |_,animal|
+      'dogs' => results.map { |dog|
         {
-          'id' => animal['animalID'],
-          'name' => animal['animalName'],
-          'orgId' => animal['animalOrgID'],
-          'breed' => animal['animalPrimaryBreed'],
-          'photos' => animal['animalPictures'],
-          'description' => animal['animalDescriptionPlain'],
-          'ageString' => animal['animalAgeString'],
+          'id' => dog.id,
+          'name' => dog.name,
+          'breeds' => dog.breeds,
+          'photos' => dog.photos,
+          'sex' => dog.sex,
+          'age' => dog.age,
+          'size' => dog.size,
+          'contact' => parse_contact(dog.contact),
         }
       },
     }
   end
 
-  def headers
-    {
-      'Content-Type' => 'application/json',
-    }
+  def petfinder
+    @petfinder ||= Petfinder::Client.new(API_KEY, API_SECRET)
   end
 
-  def data(options = {})
+  def parse_contact(raw_contact)
+    contact_items = raw_contact.
+      strip.
+      split("\n").
+      map { |s| s.strip }
+
     {
-      apikey: API_KEY,
-      objectType: "animals",
-      objectAction: "publicSearch",
-      search: {
-        resultStart: options[:offset],
-        resultLimit: options[:limit],
-        resultSort: "animalID",
-        resultOrder: "asc",
-        calcFoundRows: "Yes",
-        filters: [
-          {
-            fieldName: "animalStatus",
-            operation: "equals",
-            criteria: "Available",
-          },
-          {
-            fieldName: "animalSpecies",
-            operation: "equals",
-            criteria: "dog",
-          },
-          {
-            fieldName: "animalLocation",
-            operation: "equals",
-            criteria: "92117",
-          },
-          {
-            fieldName: "animalLocationDistance",
-            operation: "radius",
-            criteria: "30",
-          },
-        ],
-        fields: %W{
-          animalID animalOrgID animalName animalAgeString animalPrimaryBreed
-          animalPictures animalDescriptionPlain
-        }
-      }
+      address1: contact_items[0],
+      address2: contact_items[1],
+      city: contact_items[2],
+      state: contact_items[3],
+      zipcode: contact_items[4],
+      phone: contact_items[5],
+      fax: contact_items[6],
+      email: contact_items[7],
     }
   end
 end
