@@ -84,6 +84,8 @@ GEM
     erubis (2.7.0)
     excon (0.43.0)
     execjs (2.2.2)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -229,6 +231,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   dotenv-rails
+  font-awesome-rails
   httparty (~> 0.13.3)
   jasmine-rails
   jbuilder (~> 2.0)

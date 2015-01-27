@@ -59,6 +59,7 @@ gem 'petfinder'
 gem 'backbone-on-rails', '~> 1.1.2.0'
 
 gem 'purecss-rails'
+gem 'font-awesome-rails'
 
 # For serving static assets in Heroku
 gem 'rails_12factor', group: :production
