@@ -5,8 +5,25 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+header.page-header {
+  height: 40px;
+  background: #5ba641;
+  color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+  .logo {
+    font-size: 25px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px;
+    margin-left: 15px;
+  }
+}
+
 #app {
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .card-view {
