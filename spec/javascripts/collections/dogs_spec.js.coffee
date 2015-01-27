@@ -22,4 +22,4 @@ describe 'dogs collection', ->
   it 'should parse dogs from the response', ->
     @dogs.fetch()
     @server.respond()
-    expect(@dogs.get(1).get('name')).toEqual('Proxy')
+    expect(@dogs.at(0).get('name')).toEqual('Bit')

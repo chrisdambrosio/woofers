@@ -1,7 +1,9 @@
+#= require fixtures/dogs
+
 describe 'Woofers.Views.DogsCardView', ->
   describe '#render', ->
     beforeEach ->
-      model = new Woofers.Models.Dog(id: 1, name: 'Bit')
+      model = new Woofers.Models.Dog @fixtures.dogs['bit']
       @view = new Woofers.Views.DogsCardView(model: model)
 
     it 'renders the model', ->
