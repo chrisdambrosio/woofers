@@ -1,4 +1,4 @@
-class DogsController < ApplicationController
+class API::DogsController < ApplicationController
   @@dogs_service = DogsService
 
   def index

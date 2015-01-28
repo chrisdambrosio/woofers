@@ -7,7 +7,7 @@ describe 'dogs collection', ->
     @server = sinon.fakeServer.create()
     @server.respondWith(
       'GET'
-      '/dogs'
+      '/api/dogs'
       @validResponse(@fixture)
     )
 

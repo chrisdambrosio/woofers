@@ -1,4 +1,4 @@
 class Woofers.Collections.DogsCollection extends Backbone.Collection
-  url: '/dogs'
+  url: '/api/dogs'
   parse: (response) ->
     response.dogs

@@ -21,6 +21,6 @@ class Woofers.Views.DogsCardView extends Backbone.View
     e.preventDefault()
 
     id = @model.get('id')
-    Woofers.router.navigate(id, trigger: true)
+    Woofers.router.navigate("dogs/#{id}", trigger: true)
 
     false

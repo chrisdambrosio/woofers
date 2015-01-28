@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe DogsController, type: :controller do
+describe API::DogsController, type: :controller do
   before do
-    DogsController.class_variable_set(:@@dogs_service, FakeDogsService)
+    API::DogsController.class_variable_set(:@@dogs_service, FakeDogsService)
   end
 
   after do
-    DogsController.class_variable_set(:@@dogs_service, DogsService)
+    API::DogsController.class_variable_set(:@@dogs_service, DogsService)
   end
 
   describe 'GET #index' do

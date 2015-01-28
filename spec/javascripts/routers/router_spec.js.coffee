@@ -56,7 +56,7 @@ describe 'Router', ->
   describe 'the show route', ->
     beforeEach ->
       @router.on('route:show', @routeSpy)
-      @router.navigate('815', true)
+      @router.navigate('dogs/815', true)
 
     it 'fires the show route with an id', ->
       expect(@routeSpy.calledOnce).toBeTruthy()

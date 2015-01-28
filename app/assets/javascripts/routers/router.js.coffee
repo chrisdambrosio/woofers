@@ -5,7 +5,7 @@ class Woofers.Routers.Router extends Backbone.Router
 
   routes:
     '': 'index'
-    ':id': 'show'
+    'dogs/:id': 'show'
 
   index: ->
     @dogsIndexView = new Woofers.Views.DogsIndexView
