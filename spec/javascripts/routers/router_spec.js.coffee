@@ -2,13 +2,18 @@
 
 describe 'Router', ->
   beforeEach ->
+    @bit = @fixtures.dogs['bit']
     @collection = new Woofers.Collections.DogsCollection \
-      [ @fixtures.dogs['bit'] ]
+      [ @bit ]
     @fetchStub = sinon.stub(@collection, 'fetch').returns(null)
     @dogsIndexViewStub = sinon.stub(window.Woofers.Views, 'DogsIndexView')
       .returns(new Backbone.View())
+    @dogsShowViewStub = sinon.stub(window.Woofers.Views, 'DogsShowView')
+      .returns(new Backbone.View())
     @dogsCollectionStub = sinon.stub(window.Woofers.Collections, 'DogsCollection')
       .returns(@collection)
+    @dogModelStub = sinon.stub(window.Woofers.Models, 'Dog')
+      .returns(@bit)
 
     @router = new Woofers.Routers.Router()
     @routeSpy = sinon.spy()
@@ -22,8 +27,9 @@ describe 'Router', ->
 
   afterEach ->
     window.Woofers.Collections.DogsCollection.restore()
+    window.Woofers.Models.Dog.restore()
     window.Woofers.Views.DogsIndexView.restore()
-
+    window.Woofers.Views.DogsShowView.restore()
 
   describe 'the index route', ->
     beforeEach ->
@@ -48,11 +54,13 @@ describe 'Router', ->
       expect(@fetchStub.calledWith()).toBeTruthy()
 
   describe 'the show route', ->
-    it 'fires the show route with an id', ->
+    beforeEach ->
       @router.on('route:show', @routeSpy)
       @router.navigate('815', true)
+
+    it 'fires the show route with an id', ->
       expect(@routeSpy.calledOnce).toBeTruthy()
       expect(@routeSpy.calledWith('815')).toBeTruthy()
 
-    it 'creates a show view'
-    it 'adds the model to the show view'
+    it 'creates a show view', ->
+      expect(@dogsShowViewStub.calledOnce).toBeTruthy()

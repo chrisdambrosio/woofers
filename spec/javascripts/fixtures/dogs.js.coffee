@@ -2,7 +2,7 @@ beforeEach ->
   @fixtures =
     dogs:
       bit:
-        id: "27542149",
+        id: "815",
         name: "Bit",
         breeds: [
           "Pit Bull Terrier",
@@ -39,7 +39,7 @@ beforeEach ->
           fax: "858 513-0075",
           email: "info@itsthepits.org"
       byte:
-        id: "27542148",
+        id: "823",
         name: "Byte",
         breeds: [
           "Pointer",
