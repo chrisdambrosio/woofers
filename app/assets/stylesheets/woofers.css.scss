@@ -45,10 +45,13 @@ header.page-header {
   }
 
   .preview-photo {
+    display: inline-block;
     height: 250px;
+    width: 250px;
     background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
+    text-decoration: none;
   }
 
 }

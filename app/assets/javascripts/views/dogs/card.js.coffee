@@ -3,6 +3,9 @@ class Woofers.Views.DogsCardView extends Backbone.View
 
   className: 'card-view'
 
+  events:
+    'click .preview-photo': 'show'
+
   render: ->
     html = @template(@model.attributes)
     @$el.html(html)
@@ -13,3 +16,11 @@ class Woofers.Views.DogsCardView extends Backbone.View
       .css('background', "url(#{mediumPhotoUrl})")
 
     this
+
+  show: (e) ->
+    e.preventDefault()
+
+    id = @model.get('id')
+    Woofers.router.navigate(id, trigger: true)
+
+    false
