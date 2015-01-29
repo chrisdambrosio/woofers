@@ -1,6 +1,7 @@
 <header>
   <h1><%= name %></h1>
 </header>
+<hr>
 
 <section class="description">
   <h3>Description</h3>
@@ -11,14 +12,11 @@
 <section class="details">
   <h3>Details</h3>
 
-  <dl>
-    <dt>Age</dt>
-    <dd><%= age %></dt>
-    <dt>Sex</dt>
-    <dd><%= sex %></dt>
-    <dt>Size</dt>
-    <dd><%= size %></dt>
-  </dl>
+  <ul>
+    <li>Age:  <%= age %></li>
+    <li>Sex:  <%= sex %></li>
+    <li>Size: <%= size %></li>
+  </ul>
 </section>
 
 <section class="breeds">
@@ -34,12 +32,16 @@
 <section class="contact">
   <h3>Contact</h3>
 
-  <%= contact.phone %>
-  <%= contact.email %>
+  <ul>
+  <li><i class="fa fa-phone"></i> <%= contact.phone %></li>
+  <li><i class="fa fa-envelope"></i> <%= contact.email %></li>
+  </ul>
 </section>
 
 <section class="photos">
 <% for (i=0; i<photos.length; i++) { %>
-<img src="<%= photos[i].large %>">
+  <div class="photo">
+    <img src="<%= photos[i].large %>">
+  </div>
 <% } %>
 </section>
