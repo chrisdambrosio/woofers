@@ -4,6 +4,7 @@ beforeEach ->
       bit:
         id: "815",
         name: "Bit",
+        description: "test dog"
         breeds: [
           "Pit Bull Terrier",
           "American Bulldog"
@@ -41,6 +42,7 @@ beforeEach ->
       byte:
         id: "823",
         name: "Byte",
+        description: "test dog"
         breeds: [
           "Pointer",
           "Terrier"
