@@ -15,5 +15,9 @@ class Woofers.Routers.Router extends Backbone.Router
 
   show: (id) ->
     model = @dogs.get(id)
-    @dogsShowView = new Woofers.Views.DogsShowView model: model
-    $('#app').html(@dogsShowView.render().el)
+
+    if model?
+      @dogsShowView = new Woofers.Views.DogsShowView model: model
+      $('#app').html(@dogsShowView.render().el)
+    else
+      @navigate('/', trigger: true)
