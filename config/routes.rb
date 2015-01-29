@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#main'
 
+  get '/dogs/*any', to: 'pages#main'
+
   namespace :api do
     get '/dogs', to: 'dogs#index'
   end

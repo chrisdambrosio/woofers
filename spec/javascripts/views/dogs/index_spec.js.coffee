@@ -35,9 +35,8 @@ describe 'Woofers.Views.DogsIndexView', ->
           @fixtures.dogs['byte']
         ])
         expect(@view.$el).toContainText('Byte')
-        expect(@view.$el.children().length).toBe(2)
 
     describe 'handling the collection reset', ->
       it 'renders the empty collection', ->
         @dogs.reset()
-        expect(@view.$el).toBeEmpty()
+        expect(@view.$el.find('.cards')).toBeEmpty()
