@@ -15,6 +15,9 @@ class Woofers.Views.DogsCardView extends Backbone.View
     @$el.find('.preview-photo')
       .css('background', "url(#{mediumPhotoUrl})")
 
+    if @model.get('sex') is 'Unknown'
+      @$el.find('.sex').hide()
+
     this
 
   show: (e) ->

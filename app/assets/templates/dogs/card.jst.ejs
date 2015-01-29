@@ -3,10 +3,12 @@
 </a>
 
 <div class="summary">
-  <div class="location">
-    <i class="fa fa-map-marker"></i><%= contact.city + ", " + contact.state %>
-  </div>
   <div class="breeds">
     <span class="breed"><%= breeds[0] %></span>
+  </div>
+  <div class="size-sex-age">
+    <span class="size"><%= size %> <span class="summary-seperator">&#9679;</span></span>
+    <span class="sex"><%= sex %> <span class="summary-seperator">&#9679;</span></span>
+    <span class="age"><%= age %></span>
   </div>
 </div>
