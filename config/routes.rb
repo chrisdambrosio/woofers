@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get '/dogs/*any', to: 'pages#main'
 
   namespace :api do
-    get '/dogs', to: 'dogs#index'
+    resources :dogs, only: [ :index ]
   end
 end
