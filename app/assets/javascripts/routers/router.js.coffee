@@ -1,7 +1,6 @@
 class Woofers.Routers.Router extends Backbone.Router
   initialize: ->
     @dogs = new Woofers.Collections.DogsCollection()
-    @dogs.fetch()
 
   routes:
     '': 'index'
@@ -11,6 +10,8 @@ class Woofers.Routers.Router extends Backbone.Router
     @dogsIndexView = new Woofers.Views.DogsIndexView
       collection: @dogs
     $('#app').html(@dogsIndexView.render().el)
+
+    @dogsIndexView.fetchMore() if @dogsIndexView.collection.length is 0
 
   show: (id) ->
     model = @dogs.get(id)

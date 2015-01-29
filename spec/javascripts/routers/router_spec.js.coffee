@@ -5,9 +5,11 @@ describe 'Router', ->
     @bit = @fixtures.dogs['bit']
     @collection = new Woofers.Collections.DogsCollection \
       [ @bit ]
+
     @fetchStub = sinon.stub(@collection, 'fetch').returns(null)
+
     @dogsIndexViewStub = sinon.stub(window.Woofers.Views, 'DogsIndexView')
-      .returns(new Backbone.View())
+      .returns(new Backbone.View(collection: @collection))
     @dogsShowViewStub = sinon.stub(window.Woofers.Views, 'DogsShowView')
       .returns(new Backbone.View())
     @dogsCollectionStub = sinon.stub(window.Woofers.Collections, 'DogsCollection')
@@ -48,10 +50,6 @@ describe 'Router', ->
       expect(@dogsIndexViewStub.calledOnce).toBeTruthy()
       expect(@dogsIndexViewStub.calledWith(collection: @collection))
         .toBeTruthy()
-
-    it 'fetches the dogs collection from the server', ->
-      expect(@fetchStub.calledOnce).toBeTruthy()
-      expect(@fetchStub.calledWith()).toBeTruthy()
 
   describe 'the show route', ->
     beforeEach ->

@@ -27,12 +27,12 @@ header.page-header {
   margin-bottom: 20px;
 
   .footer-actions {
+    display: none;
     margin-top: 25px;
     margin-bottom: 30px;
 
     button.show-more {
       width: 90%;
-      padding: 10px;
       font-size: 1.25em;
     }
   }
@@ -87,4 +87,13 @@ header.page-header {
   border-radius: 4px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   background: #5ba641;
+}
+
+button.show-more, .loading {
+  padding: 10px;
+}
+
+.loading {
+  font-size: 40px;
+  color: #555;
 }
