@@ -6,6 +6,7 @@ class Woofers.Models.Dog extends Backbone.Model
   expandAttributes: ->
     @expandSex()
     @expandSize()
+    @expandAge()
 
   expandSize: ->
     switch @get('size')
@@ -18,3 +19,7 @@ class Woofers.Models.Dog extends Backbone.Model
       when 'M' then @set('sex', 'Male')
       when 'F' then @set('sex', 'Female')
       when 'U' then @set('sex', 'Unknown')
+
+  expandAge: ->
+    switch @get('age')
+      when 'Young' then @set('age', 'Puppy')

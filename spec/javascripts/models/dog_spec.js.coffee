@@ -32,3 +32,8 @@ describe Woofers.Models.Dog, ->
       dog = new Woofers.Models.Dog(size: 'n/a')
       dog.set('size', 'S')
       expect(dog.get('size')).toBe('Small')
+
+  describe 'age description for a new dog', ->
+    it 'changes from young to puppy', ->
+      dog = new Woofers.Models.Dog(age: 'Young')
+      expect(dog.get('age')).toBe('Puppy')
