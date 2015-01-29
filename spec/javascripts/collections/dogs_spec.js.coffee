@@ -23,3 +23,9 @@ describe 'dogs collection', ->
     @dogs.fetch()
     @server.respond()
     expect(@dogs.at(0).get('name')).toEqual('Bit')
+
+  it 'should use the Dog model', ->
+    @dogs.fetch()
+    @server.respond()
+    expect(@dogs.at(0) instanceof Woofers.Models.Dog)
+      .toBeTruthy()
