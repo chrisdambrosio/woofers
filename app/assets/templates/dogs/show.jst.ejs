@@ -1,1 +1,45 @@
-<%= name %>
+<header>
+  <h1><%= name %></h1>
+</header>
+
+<section class="description">
+  <h3>Description</h3>
+
+  <p><%= description %></p>
+</section>
+
+<section class="details">
+  <h3>Details</h3>
+
+  <dl>
+    <dt>Age</dt>
+    <dd><%= age %></dt>
+    <dt>Sex</dt>
+    <dd><%= sex %></dt>
+    <dt>Size</dt>
+    <dd><%= size %></dt>
+  </dl>
+</section>
+
+<section class="breeds">
+  <h3>Breeds</h3>
+
+  <ul>
+  <% for (i=0; i<breeds.length; i++) { %>
+  <li><%= breeds[i] %></li>
+  <% } %>
+  </ul>
+</section>
+
+<section class="contact">
+  <h3>Contact</h3>
+
+  <%= contact.phone %>
+  <%= contact.email %>
+</section>
+
+<section class="photos">
+<% for (i=0; i<photos.length; i++) { %>
+<img src="<%= photos[i].large %>">
+<% } %>
+</section>
