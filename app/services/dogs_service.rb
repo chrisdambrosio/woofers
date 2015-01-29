@@ -21,6 +21,7 @@ class DogsService
           'id' => dog.id,
           'name' => dog.name,
           'breeds' => dog.breeds,
+          'description' => dog.description,
           'photos' => dog.photos,
           'sex' => dog.sex,
           'age' => dog.age,
