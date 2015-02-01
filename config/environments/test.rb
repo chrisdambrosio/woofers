@@ -1,3 +1,6 @@
+ENV['PETFINDER_API_KEY'] = '8415162342'
+ENV['PETFINDER_API_SECRET'] = '8415162342'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
