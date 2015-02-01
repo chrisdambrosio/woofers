@@ -2,3 +2,6 @@ machine:
   ruby:
     version: ruby-2.2.0
 
+test:
+  post:
+    - bundle exec rake teaspoon
